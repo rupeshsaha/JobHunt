@@ -9,6 +9,6 @@ const jobSchema = new mongoose.Schema({
     employmentType: String,
     jobDescription: String,
     companyLogo: String,
-  });
+  },{timestamps: true});
   
  export const Job = mongoose.model("Job", jobSchema);

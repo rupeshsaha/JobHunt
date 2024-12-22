@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-const PopupForm = () => {
+const JobHuntForm = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [query, setQuery] = useState("");
   const [pageSize, setPageSize] = useState(1);
@@ -105,4 +105,4 @@ const PopupForm = () => {
   );
 };
 
-export default PopupForm;
+export default JobHuntForm;

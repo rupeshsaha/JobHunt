@@ -54,19 +54,15 @@ export const getJobs = async (req, res) => {
 // POST Job
 export const postJob = async (req, res) => {
   try {
-    const { title, company, location, link } = req.body;
+    const { title, company, location, link, employmentType, jobDescription } = req.body;
 
-    if (!title || !company || !location || !link) {
+    if (!title || !company || !location || !employmentType) {
       return res.status(400).json({ message: "All fields are required" });
     }
 
-    const alreadyExistingLink = await Job.findOne({ link });
+  
 
-    if (alreadyExistingLink) {
-      return res.status(400).json({ message: "Link already exists" });
-    }
-
-    const createdJob = await Job.create({ title, company, location, link });
+    const createdJob = await Job.create({ title, company, location, employmentType, jobDescription, link });
     res.status(201).json({ message: "Job created successfully", data: createdJob });
   } catch (error) {
     console.error("Error posting job:", error);

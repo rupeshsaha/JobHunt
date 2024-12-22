@@ -13,7 +13,7 @@ const JobSearch = () => {
   const [workplace, setWorkplace] = useState("");
 
   const filterRef = React.useRef(null);
-  const { setJobs, setCurrPage, setTotalPages, currPage } =
+  const { jobs, setJobs, setCurrPage, setTotalPages, currPage } =
     useContext(StoreContext);
 
   const toggleFilters = () => {
@@ -50,6 +50,7 @@ const JobSearch = () => {
       );
       const data = await response.json();
       setJobs(data.availableJobs);
+
       setCurrPage(data.currentPage);
       setTotalPages(data.totalPages);
     } catch (error) {

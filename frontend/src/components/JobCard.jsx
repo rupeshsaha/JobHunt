@@ -2,10 +2,36 @@ import React, { useContext } from "react";
 import pin from "../assets/pin.svg";
 import time from "../assets/time.svg";
 import box from "../assets/box.svg";
+import defaultCompanyLogo from "../assets/defaultCompanyLogo.svg"
 import { StoreContext } from "../store/StoreContext";
 
 const JobCard = () => {
   const { jobs } = useContext(StoreContext);
+
+
+  // conversion for those jobs which were posted manually and not scraped
+  const timeAgo =(timestamp)=> {
+    const currentTime = new Date();
+    const pastTime = new Date(timestamp);
+    const differenceInMs = currentTime - pastTime;
+
+    const seconds = Math.floor(differenceInMs / 1000);
+    const minutes = Math.floor(seconds / 60);
+    const hours = Math.floor(minutes / 60);
+    const days = Math.floor(hours / 24);
+
+    if (days > 0) {
+        return `${days} day${days > 1 ? 's' : ''} ago`;
+    } else if (hours > 0) {
+        return `${hours} hour${hours > 1 ? 's' : ''} ago`;
+    } else if (minutes > 0) {
+        return `${minutes} minute${minutes > 1 ? 's' : ''} ago`;
+    } else {
+        return `${seconds} second${seconds > 1 ? 's' : ''} ago`;
+    }
+}
+
+
 
   return (
     <>
@@ -22,7 +48,7 @@ const JobCard = () => {
             <div className="w-full font-mono text-[9px] md:text-sm flex justify-between  gap-4">
               <div className="flex gap-2 items-center">
                 <img src={time}/>
-                <div className=" ">{job.postedDate.substring(7)}</div>
+                <div className=" ">{job.postedDate?.substring(7) ||timeAgo(job.createdAt) }</div>
                 <div className="bg-[#fcc0fc4a] text-purple-700 flex items-center justify-center gap-2 rounded-full px-2 py-1 md:text-sm ">
                   <img src={pin} alt="" />
                   {job.location}
@@ -53,7 +79,7 @@ const JobCard = () => {
                 <div className="company-logo flex justify-center items-center   ">
                   <img
                     className="max-h-[50px] max-w-[50px] md:max-h-[70px] md:max-w-[70px]"
-                    src={job.companyLogo}
+                    src={job.companyLogo || defaultCompanyLogo}
                     alt="Company Logo"
                   />
                 </div>
