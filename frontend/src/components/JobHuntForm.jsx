@@ -63,7 +63,7 @@ const JobHuntForm = () => {
             <h2 className=" mb-4">Note: This might take some time</h2>
             <form onSubmit={handleSubmit}>
               <div className="mb-4">
-                
+                <label  className="text-sm">Search Query</label>
                 <input
                   type="text"
                   value={query}
@@ -73,7 +73,7 @@ const JobHuntForm = () => {
                 />
               </div>
               <div className="mb-4">
-               
+               <label className="text-sm">Number of Jobs</label>
                 <input
                   type="number"
                   value={pageSize}
