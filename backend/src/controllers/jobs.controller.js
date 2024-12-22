@@ -6,7 +6,7 @@ export const getJobs = async (req, res) => {
     const {
       query = '',
       location = '',
-      jobType = '',
+      employmentType = '',
       experienceLevel = '',
       industry = '',
       workplace = '',
@@ -19,7 +19,7 @@ export const getJobs = async (req, res) => {
 
     if (query) filter.title = { $regex: query, $options: 'i' };
     if (location) filter.location = { $regex: location, $options: 'i' };
-    if (jobType) filter.jobType = { $regex: jobType, $options: 'i' };
+    if (employmentType) filter.employmentType = { $regex: employmentType, $options: 'i' };
     if (experienceLevel) filter.experienceLevel = { $regex: experienceLevel, $options: 'i' };
     if (industry) filter.industry = { $regex: industry, $options: 'i' };
     if (workplace) filter.workplace = { $regex: workplace, $options: 'i' };

@@ -6,7 +6,7 @@ const JobSearch = () => {
   const [minPay, setMinPay] = useState(0);
   const [query, setQuery] = useState("");
   const [location, setLocation] = useState("");
-  const [jobType, setJobType] = useState("");
+  const [employmentType, setEmploymentType] = useState("");
   const [experienceLevel, setExperienceLevel] = useState("");
   const [industry, setIndustry] = useState("");
   const [sortBy, setSortBy] = useState("");
@@ -45,7 +45,7 @@ const JobSearch = () => {
     try {
       const serverUrl = import.meta.env.VITE_SERVER_URL;
       const response = await fetch(
-        `${serverUrl}/jobs/get-job?query=${query}&location=${location}&jobType=${jobType}&experienceLevel=${experienceLevel}&industry=${industry}&workplace=${workplace}&minPay=${minPay}&sortBy=${sortBy}&page=${currPage}&limit=20`,
+        `${serverUrl}/jobs/get-job?query=${query}&location=${location}&employmentType=${employmentType}&experienceLevel=${experienceLevel}&industry=${industry}&workplace=${workplace}&minPay=${minPay}&sortBy=${sortBy}&page=${currPage}&limit=20`,
         { method: "GET" }
       );
       const data = await response.json();
@@ -62,7 +62,7 @@ const JobSearch = () => {
   }, [
     query,
     location,
-    jobType,
+    employmentType,
     experienceLevel,
     industry,
     workplace,
@@ -121,7 +121,7 @@ const JobSearch = () => {
               <option value="los-angeles">Los Angeles</option>
             </select>
             <select
-              onChange={(e) => setJobType(e.target.value)}
+              onChange={(e) => setEmploymentType(e.target.value)}
               className="w-full p-2 border hover:bg-gray-200 border-gray-300 rounded-full"
             >
               <option value="">Job Type</option>
@@ -244,7 +244,7 @@ const JobSearch = () => {
               <input
                 type="checkbox"
                 value="full-time"
-                onChange={(e) => setJobType(e.target.value)}
+                onChange={(e) => setEmploymentType(e.target.value)}
               />
               <label className="pl-2">Full-Time</label>
             </div>
@@ -252,7 +252,7 @@ const JobSearch = () => {
               <input
                 type="checkbox"
                 value="part-time"
-                onChange={(e) => setJobType(e.target.value)}
+                onChange={(e) => setEmploymentType(e.target.value)}
               />
               <label className="pl-2">Part-Time</label>
             </div>
@@ -260,7 +260,7 @@ const JobSearch = () => {
               <input
                 type="checkbox"
                 value="contract"
-                onChange={(e) => setJobType(e.target.value)}
+                onChange={(e) => setEmploymentType(e.target.value)}
               />
               <label className="pl-2">Contract</label>
             </div>

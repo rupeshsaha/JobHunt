@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import pin from "../assets/pin.svg";
 import time from "../assets/time.svg";
+import box from "../assets/box.svg";
 import { StoreContext } from "../store/StoreContext";
 
 const JobCard = () => {
@@ -20,6 +21,7 @@ const JobCard = () => {
             {/* Top Section: Timestamp and Location */}
             <div className="w-full font-mono text-[9px] md:text-sm flex justify-between  gap-4">
               <div className="flex gap-2 items-center">
+                <img src={time}/>
                 <div className=" ">{job.postedDate.substring(7)}</div>
                 <div className="bg-[#fcc0fc4a] text-purple-700 flex items-center justify-center gap-2 rounded-full px-2 py-1 md:text-sm ">
                   <img src={pin} alt="" />
@@ -66,7 +68,7 @@ const JobCard = () => {
               {/* Bottom Section: Job Details */}
               <div className="flex md:justify-end justify-start mt-1 font-m gap-2 text-sm">
                 <div className="flex items-center gap-1">
-                  <img src={time} alt="Employment Type" />
+                  <img src={box} alt="Employment Type" />
                   <span>{job.employmentType}</span>
                 </div>
               </div>
