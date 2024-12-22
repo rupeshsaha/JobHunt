@@ -20,7 +20,7 @@ const LoginForm = () => {
       {/* Button to Open Popup */}
       <button
         onClick={togglePopup}
-        className="bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700"
+        className="bg-blue-600 w-full text-white px-4 py-2 rounded-full hover:bg-blue-700"
       >
      Login
       </button>
@@ -28,7 +28,7 @@ const LoginForm = () => {
       {/* Popup Overlay */}
       {isOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-          <div className="bg-white rounded-lg p-6 w-full max-w-md shadow-lg relative">
+          <div className="bg-white m-2 rounded-lg p-6 w-full max-w-md shadow-lg relative">
             {/* Close Button */}
             <button
               onClick={togglePopup}

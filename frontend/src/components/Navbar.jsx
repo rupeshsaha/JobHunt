@@ -71,22 +71,11 @@ const Navbar = () => {
           <a href="#" className="text-gray-800 font-medium cursor-pointer">
             For Employers
           </a>
-          <a href="#" className="text-gray-800 font-medium cursor-pointer">
-            Hunt More Jobs
-          </a>
-          <a
-            href="#"
-            className="text-blue-500 font-medium cursor-pointer hover:bg-[#3b9df927] rounded-full px-4 py-2"
-          >
-            + Post a Job
-          </a>
+         <JobHuntForm/>
+          <PostJobForm/>
           <div className="flex flex-col space-y-2">
-            <div className="text-white px-3 py-1 font-medium bg-blue-600 rounded-full text-center cursor-pointer">
-              Signup
-            </div>
-            <div className="text-blue-600 font-medium rounded-full border border-blue-500 px-3 py-1 text-center cursor-pointer hover:bg-[#3b9df927]">
-              Login
-            </div>
+            <SignupForm/>
+           <LoginForm/>
           </div>
         </div>
       </div>

@@ -55,7 +55,7 @@ const PostJobForm = () => {
       {/* Button to Open Popup */}
       <button
         onClick={togglePopup}
-        className="hover:bg-[#e4e4f4] text-blue-500 px-4 py-2 rounded-full"
+        className="hover:bg-[#e4e4f4] text-blue-500 md:px-4 md:py-2 rounded-full"
       >
         + Post a Job
       </button>
@@ -63,7 +63,7 @@ const PostJobForm = () => {
       {/* Popup Overlay */}
       {isOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-          <div className="bg-white rounded-lg p-6 w-full max-w-md shadow-lg relative">
+          <div className="bg-white m-2 rounded-lg p-6 w-full max-w-md shadow-lg relative">
             {/* Close Button */}
             <button
               onClick={togglePopup}
